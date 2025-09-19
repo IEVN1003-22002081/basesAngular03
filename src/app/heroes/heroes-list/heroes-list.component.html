@@ -27,7 +27,6 @@
                         {{muestraImage ? 'Ocultar' : 'Mostrar'}} imagen
                     </button>
                 </th>
-              <th>Imagen</th>
               <th>Nombre</th>
               <th>Descripción</th>
               <th>Raza</th>
@@ -35,10 +34,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let heroe of heroes">
+            <tr *ngFor="let heroe of heroes |heroFilter:listFilter">
               <td><img *ngIf="muestraImage"[src]="heroe.imagen" [style.width.px]="imageWidth"
                                             [style.margin.px]="imagenMargin"></td>
-              <td>{{ heroe.nombre }}</td>
+              <td>{{ heroe.nombre |uppercase}}</td><!-- MAYUSCULAS -->
               <td>{{ heroe.description }}</td>
               <td>{{ heroe.race}}</td>
               <td>{{ heroe.ki}}</td>
