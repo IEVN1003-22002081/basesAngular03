@@ -23,6 +23,7 @@ export class OperasBasComponent {
       this.resultado = parseInt(this.num2) !== 0
         ? parseInt(this.num1) / parseInt(this.num2)
         : NaN;
+        
     }
   }
 }

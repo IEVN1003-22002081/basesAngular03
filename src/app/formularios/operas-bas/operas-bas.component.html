@@ -1,7 +1,6 @@
 <form>
   <div class="row">
     <div class="col-md-6">
-      <!-- Número 1 -->
       <div class="mb-3">
         <label for="inputNumero1" class="form-label">Número 1</label>
         <input
@@ -14,7 +13,6 @@
         />
       </div>
 
-      <!-- Número 2 -->
       <div class="mb-3">
         <label for="inputNumero2" class="form-label">Número 2</label>
         <input
@@ -29,7 +27,7 @@
 
       <hr />
 
-ng       <div class="mb-3">
+        <div class="mb-3">
         <label class="form-label">Seleccione el cálculo:</label><br />
         <input type="radio" name="calculo" (click)="calculo='sumar'" /> Sumar <br />
         <input type="radio" name="calculo" (click)="calculo='restar'" /> Restar <br />
@@ -37,8 +35,9 @@ ng       <div class="mb-3">
         <input type="radio" name="calculo" (click)="calculo='dividir'" /> Dividir
       </div>
 
-      <button (click)="calcular()" type="button" class="btn btn-pr">calcular</button>
+      <button (click)="calcular()" type="button" class="btn btn-primary">calcular</button>
+
       <h1>
         El resultado es: {{ resultado }}
-      </h1>
+      </h1> 
 

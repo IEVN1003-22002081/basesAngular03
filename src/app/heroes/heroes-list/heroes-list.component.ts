@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+/* import { Component } from '@angular/core';
 import { IHeroes } from '../heroes';
 @Component({
   selector: 'app-heroes-list',
@@ -47,3 +47,4 @@ heroes:IHeroes[]=[
   ]
 
 }
+ */

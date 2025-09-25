@@ -1,0 +1,53 @@
+ <div class="text-bg-primary p-3" >
+      <div class="text-center mb-4" >Cinépolis</div>
+
+      <div class="text-center mb-4">
+        <fieldset>
+          <legend class="text-center mb-4">Entradas</legend>
+          <div >
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" [(ngModel)]="nombre" class="form-input">
+          </div>
+          <div >
+            <label for="compradores">Cantidad Compradores</label>
+            <input type="number" id="compradores" [(ngModel)]="cantidadCompradores" class="form-input">
+          </div>
+          <div>
+            <label class="text-center mb-4">Tarjeta Cineco</label>
+            <div >
+              <input type="radio" id="tarjeta_si" name="tarjetaCineco" [value]="true" [(ngModel)]="tarjetaCineco">
+              <label for="tarjeta_si">Sí</label>
+              <input type="radio" id="tarjeta_no" name="tarjetaCineco" [value]="false" [(ngModel)]="tarjetaCineco">
+              <label for="tarjeta_no">No</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="boletas">Cantidad De Boletos</label>
+            <input type="number" id="boletas" [(ngModel)]="cantidadBoletas" class="form-input">
+          </div>
+        </fieldset>
+
+        <fieldset >
+          <legend class="text-center mb-4">Salidas</legend>
+          <div >
+            <label for="valor_pagar">Valor a Pagar</label>
+            <input type="text" id="valor_pagar" [value]="valorPagar" readonly class="form-input-output">
+          </div>
+        </fieldset>
+      </div>
+      
+      <div >
+          <div class="text-center mb-4">Cinepolis</div>
+      
+      </div>
+
+
+      <fieldset class="text-center mb-4">
+        <legend class="text-center mb-4">Acciones</legend>
+        <div >
+          <button class="btn btn-info" type="button" (click)="procesar()">Procesar</button>
+          
+          <button class="btn btn-danger" type="button" (click)="salir()">Salir</button>
+        </div>
+      </fieldset>
+    </div>

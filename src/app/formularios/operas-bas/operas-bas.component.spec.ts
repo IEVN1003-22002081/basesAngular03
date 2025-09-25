@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OperasBasComponent } from './operas-bas.component';
 
@@ -21,3 +21,4 @@ describe('OperasBasComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+ 

@@ -1,0 +1,105 @@
+<div class="container mt-4 p-4 border rounded shadow-sm bg-light">
+  <h2 class="text-center mb-4">Calculadora de Valor de Resistencia</h2>
+  <div class="row">
+    <!-- Bandas -->
+    <div class="col-md-8 row">
+
+      <!-- 1ra Banda -->
+      <div class="col-4">
+        <h6>1ra. Banda</h6>
+        <div *ngFor="let color of coloresBandas" class="form-check">
+          <input class="form-check-input" type="radio" name="banda1" [id]="'b1-'+color.nombre"
+            [value]="color" [(ngModel)]="banda1Seleccionada">
+          <label class="form-check-label" [for]="'b1-'+color.nombre">
+            <!-- Aplica color -->
+            <span [ngStyle]="{'color': color.hex, 'font-weight':'bold'}">
+              {{ color.valor }}
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 2da Banda -->
+      <div class="col-4">
+        <h6>2da. Banda</h6>
+        <div *ngFor="let color of coloresBandas" class="form-check">
+          <input class="form-check-input" type="radio" name="banda2" [id]="'b2-'+color.nombre"
+            [value]="color" [(ngModel)]="banda2Seleccionada">
+          <label class="form-check-label" [for]="'b2-'+color.nombre">
+            <span [ngStyle]="{'color': color.hex, 'font-weight':'bold'}">
+              {{ color.valor }}
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 3ra Banda (Multiplicador) -->
+      <div class="col-4">
+        <h6>3ra. Banda (Multiplicador)</h6>
+        <div *ngFor="let mult of coloresMultiplicador" class="form-check">
+          <input class="form-check-input" type="radio" name="multiplicador" [id]="'m-'+mult.nombre"
+            [value]="mult" [(ngModel)]="multiplicadorSeleccionado">
+          <label class="form-check-label" [for]="'m-'+mult.nombre">
+            <span [ngStyle]="{'color': mult.hex, 'font-weight':'bold'}">
+              x{{ mult.valor | number }}
+            </span>
+          </label>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tolerancia -->
+    <div class="col-md-4">
+      <h6>Tolerancia</h6>
+      <div *ngFor="let tol of coloresTolerancia" class="form-check">
+        <input class="form-check-input" type="radio" name="tolerancia" [id]="'t-'+tol.nombre"
+          [value]="tol" [(ngModel)]="toleranciaSeleccionada">
+        <label class="form-check-label" [for]="'t-'+tol.nombre">
+          <span class="color-dot" [style.backgroundColor]="tol.hex"></span> {{ tol.nombre }}
+        </label>
+      </div>
+      <div class="d-grid mt-4">
+        <button (click)="calcular()" class="btn btn-primary">Calcular</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resultados -->
+  <hr class="my-4">
+  <h4 class="text-center">Resultados</h4>
+  <table class="table table-bordered text-center">
+    <thead class="table-dark">
+      <tr>
+        <th>Color 1</th>
+        <th>Color 2</th>
+        <th>Multiplicador</th>
+        <th>Tolerancia</th>
+        <th>Valor (Ω)</th>
+        <th>Máximo</th>
+        <th>Mínimo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td [style.backgroundColor]="banda1Seleccionada?.hex" 
+            >
+            {{ banda1Seleccionada?.nombre }}
+        </td>
+        <td [style.backgroundColor]="banda2Seleccionada?.hex" >
+            {{ banda2Seleccionada?.nombre }}
+        </td>
+        <td [style.backgroundColor]="multiplicadorSeleccionado?.hex">
+            {{ multiplicadorSeleccionado?.nombre }}
+        </td>
+        <td [style.backgroundColor]="toleranciaSeleccionada?.hex">
+          {{ toleranciaSeleccionada?.nombre }} 
+          {{ toleranciaSeleccionada ? ('±' + toleranciaSeleccionada.valor + '%') : '' }}
+        </td>
+        <td><strong>{{ valorResistencia | number }}</strong></td>
+        <td>{{ valorMaximo | number }}</td>
+        <td>{{ valorMinimo | number }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
